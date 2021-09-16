@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone list</title>
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <h4>Phone List</h4>
+            <a href="/phone/addPage" class="btn btn-info m-3">Add Phone</a>
+            <form class="m-3" th:action="@{/contact/search}" method="post">
+                <input type="text" name="word" placeholder="Enter word" class="form-control m-2">
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </form>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Model</td>
+                    <td>Price</td>
+                    <td>Operations</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="phone:${phones}">
+                    <td th:text="${phone.id}"></td>
+                    <td th:text="${phone.model}"></td>
+                    <td th:text="${phone.price}"></td>
+                    <td>
+                        <a th:href="@{/phone/editPage/{id}(id=${phone.id})}" class="btn btn-warning">Edit</a>
+                        <a th:href="@{/phone/delete/{id}(id=${phone.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

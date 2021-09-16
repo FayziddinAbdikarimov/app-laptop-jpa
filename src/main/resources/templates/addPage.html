@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Phone</title>
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <form th:action="@{/phone/add}" id="phoneForm" method="post">
+                <label for="id">ID</label>
+                <input class="form-control" type="number" id="id" name="id" placeholder="Enter id">
+                <label for="model">Model</label>
+                <input class="form-control" type="text" id="model" name="model" placeholder="Enter model">
+                <label for="price">Price</label>
+                <input class="form-control" type="number" id="price" name="price" placeholder="Enter price">
+                <button type="submit" class="btn btn-info mt-2">Add phone</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

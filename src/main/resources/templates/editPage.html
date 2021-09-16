@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Phone</title>
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <h4>Edit Phone</h4>
+            <form th:action="@{/phone/update}" id="phoneForm" method="post">
+                <input type="number" name="id" th:value="${aPhone.id}" hidden>
+                <label for="model">Model</label>
+                <input class="form-control" type="text" id="model" name="model" required
+                       th:value="${aPhone.model}">
+                <label for="price">Price</label>
+                <input class="form-control" type="number" id="price" name="price" required
+                       th:value="${aPhone.price}">
+                <button type="submit" class="btn btn-info mt-2">Update phone</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
